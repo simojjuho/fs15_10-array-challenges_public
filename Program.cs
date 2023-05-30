@@ -7,10 +7,25 @@ Expected result: int[] {1,2} since 1 and 2 are both available in sub arrays.
 
 int[] CommonItems(int[][] jaggedArray)
 {
-
+    List<int> result = new List<int>();
+    for (int i = 0; i < jaggedArray[0].Length; i++)
+    {
+        if(jaggedArray[1].Contains(jaggedArray[0][i]))
+        {
+            result.Add(jaggedArray[0][i]);
+        }
+  }
+    return result.ToArray();
 }
-int[][] arr1 = { new int[] { 1, 2 }, new int[] { 2, 1, 5 } };
+int[][] arr1 = { new int[] { 0, 2, 3, 8 }, new int[] { 2, 1, 6, 8, 9 } };
 int[] arr1Common = CommonItems(arr1);
+
+/*
+FOR TESTING:
+ for(int i = 0; i < arr1Common.Length; i++) 
+{
+    Console.WriteLine(arr1Common[i]);
+} */
 /* write method to print arr1Common */
 
 /* 
@@ -45,12 +60,12 @@ Challenge 4. Inverse column/row of a rectangular array.
 For example, given: int[,] arr = {{1,2,3}, {4,5,6}}
 Expected result: {{1,4},{2,5},{3,6}}
  */
-int[,] InverseRec(int[,] recArray)
-{
+// int[,] InverseRec(int[,] recArray)
+// {
 
-}
-int[,] arr4 = { { 1, 2, 3 }, { 4, 5, 6 } };
-int[,] arr4Inverse = InverseRec(arr4);
+// }
+// int[,] arr4 = { { 1, 2, 3 }, { 4, 5, 6 } };
+// int[,] arr4Inverse = InverseRec(arr4);
 /* write method to print arr4Inverse */
 
 /* 
@@ -61,12 +76,12 @@ string, number.
 - Finally print everything out. 
 Example: Demo("hello", 1, 2, "world") 
 Expected result: hello world; 3 */
-void Demo()
-{
+// void Demo()
+// {
 
-}
-Demo("hello", 1, 2, "world"); //should print out "hello world; 3"
-Demo("My", 2, 3, "daughter", true, "is");//should print put "My daughter is; 5"
+// }
+// Demo("hello", 1, 2, "world"); //should print out "hello world; 3"
+// Demo("My", 2, 3, "daughter", true, "is");//should print put "My daughter is; 5"
 
 
 /* Challenge 6. Write a function to swap 2 objects but only if they are of the same type 
@@ -103,20 +118,20 @@ var orderItem4 = new OrderItem(product4, 2);
 var orderItem5 = new OrderItem(product5, 5);
 var orderItem6 = new OrderItem(product2, 2);
 
-var cart = new Cart();
-cart.AddToCart(orderItem1, orderItem2, orderItem3, orderItem4, orderItem5, orderItem6);
+// var cart = new Cart();
+// cart.AddToCart(orderItem1, orderItem2, orderItem3, orderItem4, orderItem5, orderItem6);
 
-//get 1st item in cart
-var firstItem = cart[0];
-Console.WriteLine(firstItem);
+// //get 1st item in cart
+// var firstItem = cart[0];
+// Console.WriteLine(firstItem);
 
-//Get cart info
-cart.GetCartInfo(out int totalPrice, out int totalQuantity);
-Console.WriteLine("Total Quantity: {0}, Total Price: {1}", totalQuantity, totalPrice);
+// //Get cart info
+// cart.GetCartInfo(out int totalPrice, out int totalQuantity);
+// Console.WriteLine("Total Quantity: {0}, Total Price: {1}", totalQuantity, totalPrice);
 
-//get sub array from a range
-var subCart = cart[1, 3];
-Console.WriteLine(subCart);
+// //get sub array from a range
+// var subCart = cart[1, 3];
+// Console.WriteLine(subCart);
 
 class Product
 {
