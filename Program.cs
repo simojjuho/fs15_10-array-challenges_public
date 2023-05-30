@@ -17,16 +17,22 @@ int[] CommonItems(int[][] jaggedArray)
   }
     return result.ToArray();
 }
-int[][] arr1 = { new int[] { 0, 2, 3, 8 }, new int[] { 2, 1, 6, 8, 9 } };
+int[][] arr1 = { new int[] { 0, 2, 3, 8 }, new int[] { 2, 1, 6, 8, 9, 3 } };
 int[] arr1Common = CommonItems(arr1);
-
-/*
-FOR TESTING:
- for(int i = 0; i < arr1Common.Length; i++) 
+void printCommon(int[] array)
 {
-    Console.WriteLine(arr1Common[i]);
-} */
-/* write method to print arr1Common */
+    Console.Write("Array with common values is: [");
+    for(int i = 0; i < array.Length; i++) 
+    {
+        Console.Write(array[i]);
+        if(array.Length - i > 1)
+        {
+            Console.Write(',');
+        }
+    }
+    Console.WriteLine(']');
+}
+// printCommon(arr1Common);
 
 /* 
 Challenge 2. Inverse the elements of a jagged array.
@@ -42,15 +48,30 @@ void InverseJagged(int[][] jaggedArray)
 }
 int[][] arr2 = { new int[] { 1, 2 }, new int[] { 1, 2, 3 }, new int[] {2, 4, 1} };
 InverseJagged(arr2);
-foreach(int[] item in arr2)
+void printReversed(int[][] jgdArr)
 {
-    foreach(int integer in item)
-    {
-        Console.WriteLine(integer);
-    }
+    // Console.Write("Arr2 with values reversed: [");
+    // for(int i = 0; i < jgdArr.Length; i++)
+    // {
+    //     Console.Write('[');
+    //     for(int j = 0; j < jgdArr[i].Length; j++)
+    //     {
+    //         Console.Write(jgdArr[i][j]);
+    //         if(jgdArr[i].Length - j > 1)
+    //         {
+    //             Console.Write(',');
+    //         }
+    //     }
+    //     Console.Write(']');
+    //     if(jgdArr.Length - i > 1)
+    //     {
+    //         Console.Write(',');
+    //     }
+    // }
+    // Console.Write(']');
+    Console.WriteLine(jgdArr.ToString());
 }
-/* write method to print arr2
-
+printReversed(arr2);
 /* 
 Challenge 3.Find the difference between 2 consecutive elements of an array.
 For example, int[][] arr = {new int[] {1,2}, new int[]{1,2,3}} 
