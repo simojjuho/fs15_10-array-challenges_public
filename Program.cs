@@ -50,28 +50,28 @@ int[][] arr2 = { new int[] { 1, 2 }, new int[] { 1, 2, 3 }, new int[] {2, 4, 1} 
 InverseJagged(arr2);
 void printReversed(int[][] jgdArr)
 {
-    // Console.Write("Arr2 with values reversed: [");
-    // for(int i = 0; i < jgdArr.Length; i++)
-    // {
-    //     Console.Write('[');
-    //     for(int j = 0; j < jgdArr[i].Length; j++)
-    //     {
-    //         Console.Write(jgdArr[i][j]);
-    //         if(jgdArr[i].Length - j > 1)
-    //         {
-    //             Console.Write(',');
-    //         }
-    //     }
-    //     Console.Write(']');
-    //     if(jgdArr.Length - i > 1)
-    //     {
-    //         Console.Write(',');
-    //     }
-    // }
-    // Console.Write(']');
-    Console.WriteLine(jgdArr.ToString());
+    Console.Write("Arr2 with values reversed: [");
+    for(int i = 0; i < jgdArr.Length; i++)
+    {
+        Console.Write('[');
+        for(int j = 0; j < jgdArr[i].Length; j++)
+        {
+            Console.Write(jgdArr[i][j]);
+            if(jgdArr[i].Length - j > 1)
+            {
+                Console.Write(',');
+            }
+        }
+        Console.Write(']');
+        if(jgdArr.Length - i > 1)
+        {
+            Console.WriteLine(',');
+        }
+    }
+    Console.Write(']');
+    
 }
-printReversed(arr2);
+// printReversed(arr2);
 /* 
 Challenge 3.Find the difference between 2 consecutive elements of an array.
 For example, int[][] arr = {new int[] {1,2}, new int[]{1,2,3}} 
@@ -79,26 +79,88 @@ Expected result: int[][] arr = {new int[] {-1}, new int[]{-1, -1}}
  */
 void CalculateDiff(int[][] jaggedArray)
 {
-
+    for (int i = 0; i < jaggedArray.Length; i++)
+    {
+        int[] newArr = new int[jaggedArray[i].Length- 1];
+        for (int j = 0; j < jaggedArray[i].Length - 1; j++)
+        {
+            newArr[j] = jaggedArray[i][j] - jaggedArray[i][j + 1];
+        }
+        jaggedArray[i] = newArr;
+    }
 }
-int[][] arr3 = { new int[] { 1, 2 }, new int[] { 1, 2, 3 } };
+int[][] arr3 = { new int[] { 1, 2 }, new int[] { 1, 2, 5 } };
 CalculateDiff(arr3);
 /* write method to print arr3 */
-
+void printDifferences (int[][] jgdArr)
+{
+    Console.Write("Arr3 with differences: [");
+    for(int i = 0; i < jgdArr.Length; i++)
+    {
+        Console.Write('[');
+        for(int j = 0; j < jgdArr[i].Length; j++)
+        {
+            Console.Write(jgdArr[i][j]);
+            if(jgdArr[i].Length - j > 1)
+            {
+                Console.Write(',');
+            }
+        }
+        Console.Write(']');
+        if(jgdArr.Length - i > 1)
+        {
+            Console.Write(',');
+        }
+    }
+    Console.WriteLine(']');
+}
+//printDifferences(arr3);
 
 /* 
 Challenge 4. Inverse column/row of a rectangular array.
 For example, given: int[,] arr = {{1,2,3}, {4,5,6}}
 Expected result: {{1,4},{2,5},{3,6}}
  */
-// int[,] InverseRec(int[,] recArray)
-// {
-
-// }
-// int[,] arr4 = { { 1, 2, 3 }, { 4, 5, 6 } };
-// int[,] arr4Inverse = InverseRec(arr4);
+int[,] InverseRec(int[,] recArray)
+{
+    int newRows = recArray.GetLength(1);
+    int newColumns = recArray.GetLength(0);
+    int[,] newRecArr = new int [newRows,newColumns];
+    for(int i = 0; i < recArray.GetLength(0); i++)
+    {
+        for(int j = 0; j < recArray.GetLength(1); j++)
+        {
+            newRecArr[j,i] = recArray[i, j];
+        }
+    }
+    return newRecArr;
+}
+int[,] arr4 = { { 1, 2, 3 }, { 4, 5, 6 } };
+int[,] arr4Inverse = InverseRec(arr4);
 /* write method to print arr4Inverse */
-
+void printInversed (int[,] recArr)
+{
+    Console.Write("Arr3 with differences: [");
+    for(int i = 0; i < recArr.GetLength(0); i++)
+    {
+        Console.Write('[');
+        for(int j = 0; j < recArr.GetLength(1); j++)
+        {
+            Console.Write(recArr[i,j]);
+            if(recArr.GetLength(1) - j > 1)
+            {
+                Console.Write(',');
+            }
+        }
+        Console.Write(']');
+        if(recArr.GetLength(0) - i > 1)
+        {
+            Console.Write(',');
+        }
+    }
+    Console.WriteLine(']');
+}
+//printInversed(arr4Inverse);
 /* 
 Challenge 5. Write a function that accepts a variable number of params of any of these types: 
 string, number. 
