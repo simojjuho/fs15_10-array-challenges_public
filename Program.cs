@@ -35,11 +35,21 @@ Expected result: int[][] arr = {new int[]{2, 1}, new int[]{3, 2, 1}}
 */
 void InverseJagged(int[][] jaggedArray)
 {
-
+    for(int i = 0; i < jaggedArray.Length; i++)
+    {
+        jaggedArray[i] = jaggedArray[i].Reverse().ToArray();
+    }
 }
-int[][] arr2 = { new int[] { 1, 2 }, new int[] { 1, 2, 3 } };
+int[][] arr2 = { new int[] { 1, 2 }, new int[] { 1, 2, 3 }, new int[] {2, 4, 1} };
 InverseJagged(arr2);
-/* write method to print arr2 */
+foreach(int[] item in arr2)
+{
+    foreach(int integer in item)
+    {
+        Console.WriteLine(integer);
+    }
+}
+/* write method to print arr2
 
 /* 
 Challenge 3.Find the difference between 2 consecutive elements of an array.
