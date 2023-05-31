@@ -291,9 +291,6 @@ Console.WriteLine("Total Quantity: {0}, Total Price: {1}", totalQuantity, totalP
 //get sub array from a range
 var subCart = cart[1, 3];
 Console.WriteLine(subCart);
-
-Console.WriteLine(cart);
-
 class Product
 {
     public int Id { get; set; }
@@ -346,13 +343,18 @@ class Cart
         }
     }
 
-    public List<OrderItem> this[int index1, int index2]
+    public Cart this[int startIndex, int endIndex]
     {
         get
         {
-            if(index1 > 0 && index1 < index2 && index2 > 0 && index2 < _cart.Count())
+            if(startIndex > 0 && startIndex < endIndex && endIndex > 0 && endIndex < _cart.Count())
             {
-                return _cart.GetRange(index1, index2-index1);
+                Cart subCart = new Cart();
+                for(int i = startIndex; i < endIndex; i++)
+                {
+                    subCart.AddToCart(this[i]);
+                }
+                return subCart;
             }
             else {
                 throw new IndexOutOfRangeException();
@@ -395,7 +397,6 @@ class Cart
         {
             cartString += $"{this[i].ToString()}";
         }
-        Console.WriteLine("In toString");
         return cartString;
     }
 
