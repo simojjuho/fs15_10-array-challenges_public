@@ -169,10 +169,26 @@ string, number.
 - Finally print everything out. 
 Example: Demo("hello", 1, 2, "world") 
 Expected result: hello world; 3 */
-// void Demo()
-// {
-
-// }
+void Demo(params object[] list)
+{
+    string sentence = "";
+    int sum = 0;
+    for(int i = 0; i < list.Length; i++)
+    {
+        switch (list[i])
+        {
+            case string:
+                sentence = sentence + list[i] + ' ';
+                continue;
+            case int:
+                sum += Convert.ToInt32(list[i]);
+                continue;
+            default:
+                continue;
+        }
+    }
+    Console.WriteLine($"{sentence.TrimEnd()}; {sum}");
+}
 // Demo("hello", 1, 2, "world"); //should print out "hello world; 3"
 // Demo("My", 2, 3, "daughter", true, "is");//should print put "My daughter is; 5"
 
