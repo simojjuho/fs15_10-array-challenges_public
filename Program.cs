@@ -196,10 +196,24 @@ void Demo(params object[] list)
 /* Challenge 6. Write a function to swap 2 objects but only if they are of the same type 
 and if they’re string, lengths have to be more than 5. 
 If they’re numbers, they have to be more than 18. */
-void SwapTwo()
-{
+string CheckType(object obj)
+    {
+        switch (obj)
+        {
+            case string:
+                return "string";
+            case int:
+                return "number";
+            default:
+                return "not correct type";
+        }
+    }
 
+void SwapTwo(params object[] list)
+{
+    
 }
+//SwapTwo("harjakatto", "kerroshampurilainen");
 
 /* Challenge 7. Write a function that does the guessing game. 
 The function will think of a random integer number (lets say within 100) 
@@ -207,7 +221,35 @@ and ask the user to input a guess.
 It’ll repeat the asking until the user puts the correct answer. */
 void GuessingGame()
 {
-
+    Random rnd = new Random();
+    
+    int randNum = rnd.Next(0, 100);
+    Console.WriteLine("Guess a number between 0 and 100");
+    while(true)
+    {
+        try
+        {
+            int guess = Convert.ToInt32(Console.ReadLine());
+            if(guess < randNum)
+            {
+                Console.WriteLine("The number is bigger");
+            }
+            else if(guess > randNum)
+            {
+                Console.WriteLine("The number is smaller");
+            }
+            else
+            {
+                Console.WriteLine("Congrats, you guessed it!");
+                break;
+            }
+        }
+        catch (System.FormatException)
+        {
+            Console.WriteLine("Error: not a number. Give a proper number between 0 and 100.");
+            continue;
+        }
+    }
 }
 GuessingGame();
 
