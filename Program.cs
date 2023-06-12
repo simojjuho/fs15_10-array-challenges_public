@@ -32,7 +32,7 @@ void printCommon(int[] array)
     }
     Console.WriteLine(']');
 }
-// printCommon(arr1Common);
+printCommon(arr1Common);
 
 /* 
 Challenge 2. Inverse the elements of a jagged array.
@@ -71,7 +71,7 @@ void printReversed(int[][] jgdArr)
     Console.Write(']');
     
 }
-// printReversed(arr2);
+printReversed(arr2);
 /* 
 Challenge 3.Find the difference between 2 consecutive elements of an array.
 For example, int[][] arr = {new int[] {1,2}, new int[]{1,2,3}} 
@@ -114,7 +114,7 @@ void printDifferences (int[][] jgdArr)
     }
     Console.WriteLine(']');
 }
-//printDifferences(arr3);
+printDifferences(arr3);
 
 /* 
 Challenge 4. Inverse column/row of a rectangular array.
@@ -160,7 +160,7 @@ void printInversed (int[,] recArr)
     }
     Console.WriteLine(']');
 }
-//printInversed(arr4Inverse);
+printInversed(arr4Inverse);
 /* 
 Challenge 5. Write a function that accepts a variable number of params of any of these types: 
 string, number. 
@@ -189,8 +189,8 @@ void Demo(params object[] list)
     }
     Console.WriteLine($"{sentence.TrimEnd()}; {sum}");
 }
-// Demo("hello", 1, 2, "world"); //should print out "hello world; 3"
-// Demo("My", 2, 3, "daughter", true, "is");//should print put "My daughter is; 5"
+Demo("hello", 1, 2, "world"); //should print out "hello world; 3"
+Demo("My", 2, 3, "daughter", true, "is");//should print put "My daughter is; 5"
 
 
 /* Challenge 6. Write a function to swap 2 objects but only if they are of the same type 
@@ -216,12 +216,12 @@ void SwapTwo(object[] list)
     }
     
 }
-// object[] list = {"aapeli", "kaapeli"};
-// SwapTwo(list);
-// for (int i = 0; i < 2; i++)
-// {
-//     Console.WriteLine(list[i]);
-// }
+object[] list = {"aapeli", "kaapeli"};
+SwapTwo(list);
+for (int i = 0; i < 2; i++)
+{
+    Console.WriteLine(list[i]);
+}
 
 /* Challenge 7. Write a function that does the guessing game. 
 The function will think of a random integer number (lets say within 100) 
@@ -259,7 +259,7 @@ void GuessingGame()
         }
     }
 }
-//GuessingGame();
+GuessingGame();
 
 /* Challenge 8. Provide class Product, OrderItem, Cart, which make a feature of a store
 Complete the required features in OrderItem and Cart, so that the test codes are error-free */
@@ -378,8 +378,6 @@ class Cart
     }
     /* Write another method called Index */
 
-    /* Write another method called GetCartInfo(), which out put 2 values: 
-    total price, total products in cart*/
     public void GetCartInfo(out int totalPrice, out int totalQuantity)
     {
         totalPrice = 0;
@@ -399,8 +397,4 @@ class Cart
         }
         return cartString;
     }
-
-    /* Override ToString() method so Console.WriteLine(cart) can print
-    id, unit price, unit quantity of each item*/
-
 }
